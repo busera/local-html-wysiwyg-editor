@@ -127,6 +127,17 @@ These browsers do not support direct write-back to arbitrary local files from a 
 - Obsidian helper plugin + local server API: `Save` writes back through the local server.
 - Manual mode: choose a file, edit, then download a copy and replace the original manually.
 
+## Platform support
+
+The browser editor and Python server are intended to work on macOS, Windows, and Linux as long as Python 3 and a modern browser are available.
+
+Current status:
+
+- macOS: tested. The Obsidian plugin can auto-start the server and open Google Chrome, Safari, or the system default browser.
+- Windows/Linux: expected to work for the browser editor and server, but not yet tested. Start the server manually with `python server.py --host 127.0.0.1 --port 8787 --vault /path/to/vault-or-folder`, then open `http://127.0.0.1:8787/` in Google Chrome.
+- Obsidian plugin on Windows/Linux: the right-click action and localhost URL flow should work when the server is already running and Browser is set to `System default`. The explicit Safari/Google Chrome launcher is currently macOS-specific because it uses `/usr/bin/open`.
+- `start.sh` is a Unix/macOS convenience script. On Windows, run `python server.py ...` directly or create an equivalent PowerShell script.
+
 ## Files
 
 ```text

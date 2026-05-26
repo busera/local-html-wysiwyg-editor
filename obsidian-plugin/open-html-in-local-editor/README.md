@@ -54,6 +54,13 @@ Recommended: Google Chrome. It gives the best open/edit/save workflow because it
 
 Auto-start is restricted to `127.0.0.1` / `localhost` for safety. If you configure another host/IP, start that server yourself.
 
+## Platform support
+
+- macOS: tested. Auto-start and explicit Google Chrome/Safari launching are supported.
+- Windows/Linux: expected to work when the local server is started manually and Browser is set to `System default`, but not yet tested.
+- Explicit Google Chrome/Safari launching is currently macOS-specific because it uses `/usr/bin/open`.
+- On Windows/Linux, start the server manually with `python server.py --host 127.0.0.1 --port 8787 --vault /path/to/vault-or-folder`, then use the Obsidian right-click action to open the localhost URL.
+
 Safety:
 - local URL by default
 - no external network
