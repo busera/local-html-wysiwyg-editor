@@ -6,6 +6,8 @@ The main benefit is the Obsidian workflow: right-click an HTML file in your vaul
 
 As AI harnesses and local agents increasingly generate standalone HTML artifacts, this avoids sending every small visual or wording change back through the agent loop. It is built for people who keep HTML companion files next to notes or documents and want a lightweight edit/clean/save workflow without a hosted editor, CDN, account, or external service.
 
+![Local HTML WYSIWYG Editor screenshot](assets/local-html-wysiwyg-editor-screenshot.png)
+
 ## Features
 
 - Obsidian helper plugin included in `obsidian-plugin/open-html-in-local-editor/`
