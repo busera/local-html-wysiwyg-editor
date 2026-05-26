@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local config / secrets
+.env
+*.local
+
+# Editor/runtime artifacts
+*.log
+*.tmp

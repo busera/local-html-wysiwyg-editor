@@ -1,0 +1,203 @@
+:root {
+  color-scheme: light dark;
+  --bg: #111318;
+  --panel: #191d25;
+  --panel-2: #202633;
+  --text: #f3f5f8;
+  --muted: #aab2c0;
+  --border: #3a4252;
+  --accent: #6ea8fe;
+  --danger: #ff7b72;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.app-header h1 {
+  margin: 0 0 .25rem;
+  font-size: 1.2rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.status {
+  max-width: 45vw;
+  padding: .45rem .65rem;
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  color: var(--muted);
+  font-size: .85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status.dirty {
+  color: #ffd166;
+  border-color: #735c1f;
+}
+
+.status.error {
+  color: var(--danger);
+  border-color: #7d2f2a;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: calc(100vh - 82px);
+}
+
+.controls {
+  display: grid;
+  gap: .55rem;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-2);
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  align-items: center;
+}
+
+button,
+input::file-selector-button {
+  border: 1px solid var(--border);
+  border-radius: .45rem;
+  padding: .42rem .65rem;
+  background: #252c3a;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: .9rem;
+}
+
+button:hover:not(:disabled),
+input::file-selector-button:hover {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.fallback-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .6rem;
+  border: 1px solid #735c1f;
+  border-radius: .5rem;
+  background: rgba(255, 209, 102, .08);
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.fallback-row strong {
+  color: #ffd166;
+}
+
+.fallback-row[hidden] {
+  display: none;
+}
+
+.workspace {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .75rem;
+  padding: .75rem;
+}
+
+.workspace.source-visible {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+}
+
+#editor-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  background: white;
+}
+
+#source-editor {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  padding: .85rem;
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
+.help-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+dialog {
+  max-width: 580px;
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  background: var(--panel);
+  color: var(--text);
+}
+
+code {
+  padding: .1rem .25rem;
+  border-radius: .25rem;
+  background: #0d1117;
+}
+
+@media (max-width: 900px) {
+  .workspace.source-visible {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .status {
+    max-width: 100%;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+}

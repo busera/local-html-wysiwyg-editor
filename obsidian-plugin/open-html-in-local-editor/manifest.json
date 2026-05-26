@@ -1,0 +1,9 @@
+{
+  "id": "open-html-in-local-editor",
+  "name": "Open HTML in Local Editor",
+  "version": "0.2.0",
+  "minAppVersion": "1.6.0",
+  "description": "Adds a file context-menu entry to open .html/.htm files in a local WYSIWYG editor.",
+  "author": "Local HTML WYSIWYG Editor contributors",
+  "isDesktopOnly": true
+}

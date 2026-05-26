@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local HTML WYSIWYG Editor</title>
+  <link rel="stylesheet" href="styles.css?v=0.3.0">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Local HTML WYSIWYG Editor</h1>
+      <p>Local browser editor for vault HTML files. No external services.</p>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite">No file open</div>
+  </header>
+
+  <main class="app-shell">
+    <section class="controls" aria-label="File and editor controls">
+      <div class="control-row file-row">
+        <button id="open-file" type="button">Open HTML File</button>
+        <button id="save-file" type="button" disabled>Save</button>
+        <button id="save-as" type="button">Save As</button>
+        <button id="download-file" type="button">Download</button>
+        <button id="new-doc" type="button">New</button>
+      </div>
+
+      <div class="control-row format-row" aria-label="Formatting controls">
+        <button data-command="formatBlock" data-value="h1" type="button">H1</button>
+        <button data-command="formatBlock" data-value="h2" type="button">H2</button>
+        <button data-command="formatBlock" data-value="p" type="button">P</button>
+        <button data-command="bold" type="button"><strong>Bold</strong></button>
+        <button data-command="italic" type="button"><em>Italic</em></button>
+        <button data-command="insertUnorderedList" type="button">Bullet</button>
+        <button data-command="insertOrderedList" type="button">Numbered</button>
+        <button id="create-link" type="button">Link</button>
+        <button id="clean-html" type="button">Clean</button>
+        <button id="toggle-source" type="button">Source</button>
+        <button id="apply-source" type="button" disabled>Apply Source</button>
+      </div>
+
+      <div class="fallback-row" id="fallback-row" hidden>
+        <strong>Safari/manual mode:</strong>
+        <label for="manual-file">Choose an HTML file, edit, then use <strong>Download Copy</strong> and replace the original file manually.</label>
+        <input id="manual-file" type="file" accept=".html,.htm,text/html">
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="HTML editor workspace">
+      <iframe id="editor-frame" title="WYSIWYG HTML editor" sandbox="allow-same-origin"></iframe>
+      <textarea id="source-editor" spellcheck="false" hidden aria-label="HTML source editor"></textarea>
+    </section>
+  </main>
+
+  <dialog id="help-dialog">
+    <form method="dialog">
+      <h2>How to use</h2>
+      <ol>
+        <li>Run the local server with <code>./start.sh</code>.</li>
+        <li>Open an HTML file from the vault with <strong>Open HTML File</strong>.</li>
+        <li>Edit in the WYSIWYG pane.</li>
+        <li>Use <strong>Save</strong> to write back to the same file.</li>
+      </ol>
+      <p>Chrome, Edge, Brave, and Arc support direct save through the File System Access API. Safari and Firefox use manual mode: choose a file, edit it, then download a copy and replace the original file yourself.</p>
+      <button type="submit">Close</button>
+    </form>
+  </dialog>
+
+  <button id="help-button" class="help-button" type="button" aria-label="Show help">?</button>
+  <script src="app.js?v=0.3.0"></script>
+</body>
+</html>
