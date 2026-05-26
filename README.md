@@ -1,13 +1,18 @@
 # Local HTML WYSIWYG Editor
 
-A small local-only WYSIWYG editor for simple `.html` and `.htm` files.
+A local WYSIWYG HTML editor with Obsidian support for opening, editing, cleaning, and saving `.html` / `.htm` companion files.
 
-As AI harnesses and local agents increasingly generate standalone HTML artifacts, I wanted a fast way to update and refine those files directly instead of sending every small visual or wording change back through the agent loop. This editor is for that workflow: open the generated HTML, make the quick human edits, clean it, and save it locally.
+The main benefit is the Obsidian workflow: right-click an HTML file in your vault, open it in a local browser editor, make quick visual edits, clean the markup, and save back to the same vault file through a localhost-only server.
 
-It is built for people who keep HTML companion files next to notes or documents and want a lightweight edit/clean/save workflow without a hosted editor, CDN, account, or external service.
+As AI harnesses and local agents increasingly generate standalone HTML artifacts, this avoids sending every small visual or wording change back through the agent loop. It is built for people who keep HTML companion files next to notes or documents and want a lightweight edit/clean/save workflow without a hosted editor, CDN, account, or external service.
 
 ## Features
 
+- Obsidian helper plugin included in `obsidian-plugin/open-html-in-local-editor/`
+- File-explorer right-click action for `.html` / `.htm` files in Obsidian
+- Command-palette action for the active HTML file
+- Auto-start support for the local editor server from Obsidian
+- Settings for browser choice, host, port, editor directory, root/vault path, and auto-start
 - Local browser editor served from `127.0.0.1`
 - WYSIWYG editing via an iframe with browser `designMode`
 - Source view with explicit apply step
@@ -20,7 +25,6 @@ It is built for people who keep HTML companion files next to notes or documents 
   - strip inline `style`, `class`, and `id`
   - unwrap `span`
   - convert `b/i` to `strong/em`
-- Optional Obsidian helper plugin for right-click opening from the file explorer
 
 ## Quick start
 
@@ -37,6 +41,34 @@ http://127.0.0.1:8787/
 ```
 
 For direct open/save to arbitrary local files, use Chrome, Edge, Brave, or Arc.
+
+## Obsidian-first workflow
+
+The repository includes the Obsidian launcher plugin files under:
+
+```text
+obsidian-plugin/open-html-in-local-editor/
+├── manifest.json
+├── main.js
+└── README.md
+```
+
+Install manually:
+
+1. Copy `obsidian-plugin/open-html-in-local-editor/` into your vault's `.obsidian/plugins/` folder.
+2. Enable `Open HTML in Local Editor` in Obsidian Community Plugins.
+3. Open the plugin settings and set `Editor directory` to this repository folder.
+4. Keep `Auto-start server` enabled unless you prefer to run `./start.sh` yourself.
+5. Right-click an `.html` or `.htm` file in Obsidian and choose `Open in Local HTML WYSIWYG Editor`.
+6. Edit visually in the browser, use `Clean` if needed, then `Save` to write back to the same vault file.
+
+The plugin checks `/api/health`, starts the local server if needed, waits for readiness, then opens a URL like:
+
+```text
+http://127.0.0.1:8787/?path=relative/path/to/file.html
+```
+
+This is intentionally a launcher plugin, not a full embedded Obsidian editor. That keeps the fragile HTML editing surface in the browser while preserving the useful Obsidian integration point: selecting files directly from the vault.
 
 ## Root-scoped API mode
 
@@ -58,28 +90,23 @@ The server rejects:
 - non-local bind hosts
 - save requests from unexpected browser origins
 
-## Obsidian integration
+## Obsidian plugin files
 
-This repository includes a small Obsidian helper plugin in:
+The Obsidian plugin is part of this repository, not a separate dependency:
 
 ```text
-obsidian-plugin/open-html-in-local-editor/
+obsidian-plugin/open-html-in-local-editor/manifest.json
+obsidian-plugin/open-html-in-local-editor/main.js
+obsidian-plugin/open-html-in-local-editor/README.md
 ```
 
-It adds:
-- a file-explorer right-click action for `.html` / `.htm` files
-- a command-palette action for the active HTML file
-- settings for browser choice, host, port, editor directory, root/vault path, and auto-start
+What it provides:
 
-Install manually:
-
-1. Copy `obsidian-plugin/open-html-in-local-editor/` into your vault's `.obsidian/plugins/` folder.
-2. Enable `Open HTML in Local Editor` in Obsidian Community Plugins.
-3. Open the plugin settings and set `Editor directory` to this repository folder.
-4. Optional: choose Safari, Google Chrome, or the system default browser.
-5. Right-click an `.html` or `.htm` file and choose `Open in Local HTML WYSIWYG Editor`.
-
-If auto-start is enabled, the plugin checks `/api/health`, starts the local server if needed, waits for readiness, then opens the editor URL.
+- right-click action from Obsidian's file explorer for `.html` / `.htm` files
+- command-palette action for the active HTML file
+- command-palette action to start/check the local editor server
+- configurable browser target: system default, Safari, or Google Chrome
+- configurable host, port, editor directory, root/vault path, and auto-start
 
 Auto-start is restricted to `127.0.0.1` / `localhost` for safety. If you configure another host or IP, start that server yourself.
 
@@ -104,7 +131,7 @@ app.js          editor logic
 styles.css      UI styling
 server.py       localhost server and root-scoped file API
 start.sh        convenience launcher
-obsidian-plugin/open-html-in-local-editor/  optional Obsidian launcher plugin
+obsidian-plugin/open-html-in-local-editor/  Obsidian launcher plugin
 ```
 
 ## Verification
