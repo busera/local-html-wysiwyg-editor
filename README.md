@@ -72,6 +72,8 @@ http://127.0.0.1:8787/?path=relative/path/to/file.html
 
 This is intentionally a launcher plugin, not a full embedded Obsidian editor. That keeps the fragile HTML editing surface in the browser while preserving the useful Obsidian integration point: selecting files directly from the vault.
 
+![Obsidian plugin settings screenshot](assets/obsidian-plugin-settings-screenshot.png)
+
 ## Root-scoped API mode
 
 The server can load and save `.html` / `.htm` files below a configured root directory:
