@@ -40,7 +40,7 @@ Open:
 http://127.0.0.1:8787/
 ```
 
-For direct open/save to arbitrary local files, use Chrome, Edge, Brave, or Arc.
+For the smoothest open/edit/save workflow, use Google Chrome. Chrome supports direct local file open/save through the File System Access API, and it also works well with the Obsidian launcher plugin's localhost save-back flow.
 
 ## Obsidian-first workflow
 
@@ -114,7 +114,7 @@ Auto-start is restricted to `127.0.0.1` / `localhost` for safety. If you configu
 
 ### Chrome / Arc / Brave / Edge
 
-Best workflow. These browsers support the File System Access API for direct open/save even without the Obsidian plugin.
+Best workflow, especially Google Chrome. These browsers support the File System Access API for direct open/save even without the Obsidian plugin. The Obsidian plugin can also be configured to open files directly in Google Chrome.
 
 ### Safari / Firefox
 

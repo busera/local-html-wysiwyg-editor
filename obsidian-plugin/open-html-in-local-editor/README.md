@@ -50,6 +50,8 @@ Browser choices:
 - Safari
 - Google Chrome
 
+Recommended: Google Chrome. It gives the best open/edit/save workflow because it supports direct local file open/save through the File System Access API and works cleanly with the plugin's localhost save-back flow.
+
 Auto-start is restricted to `127.0.0.1` / `localhost` for safety. If you configure another host/IP, start that server yourself.
 
 Safety:
