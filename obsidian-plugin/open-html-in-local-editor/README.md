@@ -1,6 +1,6 @@
 # Open HTML in Local Editor
 
-Obsidian helper plugin for Local HTML WYSIWYG Editor. This is the main integration point: select an HTML companion file inside Obsidian and open it in the local browser editor for visual edits and save-back.
+Obsidian helper plugin for Local HTML WYSIWYG Editor. This is the main integration point: select an HTML companion file inside Obsidian, open it in the local browser editor, make quick adjustments, updates, and corrections, then save back without calling the agent again.
 
 It adds:
 - file-explorer right-click action for `.html` / `.htm` files: `Open in Local HTML WYSIWYG Editor`

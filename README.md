@@ -2,9 +2,9 @@
 
 A local WYSIWYG HTML editor with Obsidian support for opening, editing, cleaning, and saving `.html` / `.htm` companion files.
 
-The main benefit is the Obsidian workflow: right-click an HTML file in your vault, open it in a local browser editor, make quick visual edits, clean the markup, and save back to the same vault file through a localhost-only server.
+The main benefit is the Obsidian workflow: right-click an HTML file in your vault, open it in a local browser editor, make quick adjustments, updates, and corrections directly in the HTML file, then save back to the same vault file through a localhost-only server without calling the agent again.
 
-As AI harnesses and local agents increasingly generate standalone HTML artifacts, this avoids sending every small visual or wording change back through the agent loop. It is built for people who keep HTML companion files next to notes or documents and want a lightweight edit/clean/save workflow without a hosted editor, CDN, account, or external service.
+As AI harnesses and local agents increasingly generate standalone HTML artifacts, this avoids sending every small visual or wording change back through the agent loop. It is built for people who keep HTML companion files next to notes or documents and want a lightweight adjust/clean/save workflow without a hosted editor, CDN, account, or external service.
 
 ![Local HTML WYSIWYG Editor screenshot](assets/local-html-wysiwyg-editor-screenshot.png)
 
