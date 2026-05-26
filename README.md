@@ -134,7 +134,7 @@ Do not expose this server to untrusted networks.
 
 ## AI assistance
 
-This project was built with AI assistance and manually reviewed/tested before publication.
+This solution was primarily coded with GPT-5.5 and manually reviewed/tested before publication.
 
 ## License
 
